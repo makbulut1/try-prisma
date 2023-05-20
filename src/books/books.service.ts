@@ -8,7 +8,7 @@ import { UpdateBookDto } from './dto/update-book.dto';
 export class BooksService {
   constructor(private prisma: PrismaService) {}
    
-  create(createBookDto: Prisma.BooksCreateInput) {
+  create(createBookDto: Prisma.BooksUncheckedCreateInput) {
     return this.prisma.books.create({
       data: createBookDto, 
     });
