@@ -15,7 +15,15 @@ export class BooksService {
   }
 
   findAll() {
-    return this.prisma.books.findMany();
+    return this.prisma.books.findMany({
+      include:{
+        author:{
+          select:{
+            name:true,
+          }
+        }
+      }
+    });
   }
 
   findOne(bookWhereUniqueInput: Prisma.BooksWhereUniqueInput) {
