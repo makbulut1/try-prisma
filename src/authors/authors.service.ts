@@ -3,12 +3,13 @@ import { Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma.service';
 import { CreateAuthorDto } from './dto/create-author.dto';
 import { UpdateAuthorDto } from './dto/update-author.dto';
+import { AuthorCreateInput } from 'src/@generated/author/author-create.input';
 
 @Injectable()
 export class AuthorsService {
   constructor(private prisma : PrismaService){}
    
-  create(createAuthorDto: Prisma.AuthorCreateInput ) {
+  create(createAuthorDto: AuthorCreateInput ) {
     return this.prisma.author.create({
       data : createAuthorDto,
     });
